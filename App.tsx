@@ -12,6 +12,8 @@ import Login from './components/Login';
 import LoginOtp from './components/LoginOtp';
 import PersonalInfo from './components/PersonalInfo';
 import { RootStackParamList } from './app/types';
+import Dashboard from './components/Dashboard';
+import HorizontalCalendar from './components/HorizontalCalendar';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -21,7 +23,10 @@ export default function App() {
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Login" component={Login} options={{headerShown: false}} />
         <Stack.Screen name="LoginOtp" component={LoginOtp} options={{headerShown: false}} />
+        <Stack.Screen name="Dashboard" component={Dashboard} options={{headerShown: false}} />
         <Stack.Screen name="PersonalInfo" component={PersonalInfo} options={{headerShown: false}} />
+        <Stack.Screen name="HorizontalCalendar" component={HorizontalCalendar} options={{headerShown: false}} />
+        
       </Stack.Navigator>
     </NavigationContainer>
   );

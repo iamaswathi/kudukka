@@ -31,7 +31,7 @@ export default function LoginOtp() {
         // Auto submit when last digit is entered
         if (index === 5 && text) {
             Keyboard.dismiss();
-            handleVerify();
+            handleVerify([...newOtp])
         }
     };
 
@@ -42,13 +42,14 @@ export default function LoginOtp() {
         }
     };
 
-    const handleVerify = async () => {
+    const handleVerify = async (otp: string[]) => {
         setIsVerifying(true);
         const enteredOtp = otp.join('');
         try {
+            console.log('enteredOtp', enteredOtp);
             await verifyOtp(enteredOtp);
             console.log('OTP verified');
-            navigation.navigate('PersonalInfo');
+            navigation.navigate('Dashboard', { phone: `+${phone}` });
         } catch (error) {
             console.error('OTP verification failed', error);
             Alert.alert("Invalid OTP, please try again.");
@@ -57,17 +58,14 @@ export default function LoginOtp() {
         } finally {
             setIsVerifying(false);
         }
-        // if (enteredOtp === '123456') {
-        //     navigation.navigate('PersonalInfo');
-        // } else {
-        //     return;
-        // }
     };
+
 
     const verifyOtp = async (otp: string): Promise<void> => {
         return new Promise((resolve, reject) => {
+            console.log('otp', otp);
             setTimeout(() => {
-                if (otp === '123456') {
+                if (otp === '121212') {
                     resolve();
                 } else {
                     reject(new Error('Invalid OTP'));
