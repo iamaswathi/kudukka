@@ -8,6 +8,7 @@
     "scheme": "mysavingsapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
@@ -24,7 +25,7 @@
       "favicon": "./assets/images/favicon.png"
     },
     "splash": {
-      "image": "./assets/images/icon.png",
+      "image": "./assets/images/splashicon.png",
       "resizeMode": "contain",
       "backgroundColor": "#A44D44"
     },

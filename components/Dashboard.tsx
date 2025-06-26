@@ -3,11 +3,14 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React, { useEffect, useRef, useState } from 'react';
-import { View, Text, Image, StyleSheet, Pressable, TouchableOpacity, FlatList, Dimensions, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Pressable, TouchableOpacity, FlatList, Dimensions, ScrollView } from 'react-native';
 // import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 // import CalendarComponent from './CalendarComponent';
 import { Picker } from '@react-native-picker/picker';
 import HorizontalCalendar from './HorizontalCalendar';
+// import RewImage from '../assets/images/rew@4x.png';
+import { Image } from 'expo-image';
+
 
 export default function Dashboard() {
     const route = useRoute();
@@ -20,6 +23,10 @@ export default function Dashboard() {
     const handleContinue = () => {
         navigation.navigate('PersonalInfo', { phone: `+${phone}` });
     };
+
+    const handleSaveMore = () => {
+
+    }
 
 
     return (
@@ -44,21 +51,25 @@ export default function Dashboard() {
             </View>
 
             {/* contains the calendar section */}
-            <View >
+            <View style={styles.middleContainer}>
                 <HorizontalCalendar />
                 {/* Your other content */}
+                <TouchableOpacity style={styles.button} onPress={handleSaveMore}>
+                    <Text style={styles.buttonText}>Save More</Text>
+                </TouchableOpacity>
             </View>
 
             {/* contains the rewards section */}
             <View style={styles.extrasContainer}>
                 <View style={styles.columnFlex}>
-                    <Image source={{ uri: 'https://i.pravatar.cc/150?img=20' }} style={styles.profileImage}
-                    />
+                    
+                     <Image source={require('@/assets/images/rewards.png')} style={styles.rewardsImage} />
+       
                     <Text style={styles.titleText}>Rewards</Text>
                 </View>
                 <View style={styles.columnFlex}>
-                    <Image source={{ uri: 'https://i.pravatar.cc/150?img=20' }} style={styles.profileImage}
-                    />
+                <Image source={require('@/assets/images/referral.png')} style={styles.referralImage} />
+       
                     <Text style={styles.titleText}>Referral</Text>
                 </View>
             </View>
@@ -68,9 +79,8 @@ export default function Dashboard() {
 }
 const styles = StyleSheet.create({
     mainContainer: {
-        paddingHorizontal: 10,
-        paddingTop: 35,
-        // alignItems: 'center',
+        paddingHorizontal: 20,
+        paddingTop: 40,
         flex: 1,
         backgroundColor: '#ddd',
     },
@@ -79,7 +89,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#ddd',
         borderRadius: 8,
-        margin: 10
     },
     avatar: {
         width: 50,
@@ -109,13 +118,39 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'flex-end',
     },
+    middleContainer: {
+        backgroundColor: '#fff',
+        borderRadius: 12,
+        padding: 16,
+        marginVertical: 20,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 6,
+        elevation: 3,
+    },
     extrasContainer: {
         flexDirection: 'row',
         justifyContent: 'flex-start',
     },
     columnFlex: {
         flexDirection: 'column'
-    }, button: {
+    },
+    rewardsImage: {
+        width: 60,
+        height: 60,
+        borderRadius: 10,
+        marginRight: 15,
+        backgroundColor: '#720218'
+    },
+    referralImage: {
+        width: 60,
+        height: 60,
+        borderRadius: 10,
+        marginRight: 15,
+        backgroundColor: '#D3AF37'
+    },
+    button: {
         backgroundColor: '#A44D44',
         width: 250,
         padding: 10,
