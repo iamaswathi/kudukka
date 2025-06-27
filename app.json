@@ -25,10 +25,10 @@
       "favicon": "./assets/images/favicon.png"
     },
     "splash": {
-      "image": "./assets/images/splashicon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#A44D44"
-    },
+          "image": "./assets/images/splashicon.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        },
     "plugins": ["expo-router"],
     "experiments": {
       "typedRoutes": true

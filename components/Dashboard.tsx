@@ -10,6 +10,7 @@ import { Picker } from '@react-native-picker/picker';
 import HorizontalCalendar from './HorizontalCalendar';
 // import RewImage from '../assets/images/rew@4x.png';
 import { Image } from 'expo-image';
+import Footer from './Footer';
 
 
 export default function Dashboard() {
@@ -62,18 +63,24 @@ export default function Dashboard() {
             {/* contains the rewards section */}
             <View style={styles.extrasContainer}>
                 <View style={styles.columnFlex}>
-                    
-                     <Image source={require('@/assets/images/rewards.png')} style={styles.rewardsImage} />
-       
+
+                    <Image source={require('@/assets/images/rewards.png')} style={styles.rewardsImage} />
+
                     <Text style={styles.titleText}>Rewards</Text>
                 </View>
                 <View style={styles.columnFlex}>
-                <Image source={require('@/assets/images/referral.png')} style={styles.referralImage} />
-       
+                    <Image source={require('@/assets/images/referral.png')} style={styles.referralImage} />
+
                     <Text style={styles.titleText}>Referral</Text>
                 </View>
+
+
             </View>
 
+            <View>
+                <Footer />
+
+            </View>
         </View>
     )
 }

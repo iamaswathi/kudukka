@@ -4,4 +4,5 @@ export type RootStackParamList = {
     PersonalInfo: { phone: string };
     Dashboard: { phone: string };
     HorizontalCalendar: { userId?: string }; // Optional `userId`
+    Footer: undefined;
   };

@@ -14,6 +14,7 @@ import PersonalInfo from './components/PersonalInfo';
 import { RootStackParamList } from './app/types';
 import Dashboard from './components/Dashboard';
 import HorizontalCalendar from './components/HorizontalCalendar';
+import Footer from './components/Footer';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -26,6 +27,7 @@ export default function App() {
         <Stack.Screen name="Dashboard" component={Dashboard} options={{headerShown: false}} />
         <Stack.Screen name="PersonalInfo" component={PersonalInfo} options={{headerShown: false}} />
         <Stack.Screen name="HorizontalCalendar" component={HorizontalCalendar} options={{headerShown: false}} />
+        <Stack.Screen name="Footer" component={Footer} options={{headerShown: false}} />
         
       </Stack.Navigator>
     </NavigationContainer>
